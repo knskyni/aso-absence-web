@@ -18,7 +18,9 @@ public class LoginServlet extends HttpServlet {
 	    Integer error = null;
 	    String errorMsg = null;
 	    String[] errorMsgList = {
-	            "ユーザー名またはパスワードが間違っています。"
+	            "ユーザー名またはパスワードが間違っています。",
+	            "ログインしていません。",
+	            "ログアウトしました。"
 	    };
 
 	    /* エラーコードの処理 */
