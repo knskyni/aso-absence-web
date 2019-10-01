@@ -26,7 +26,7 @@ public class AuthServlet extends HttpServlet {
 
         /* ログイン失敗 */
         if(loginInfoBeans == null) {
-            response.sendRedirect("login?error=0");
+            response.sendRedirect("login?code=0");
             return;
         }
 

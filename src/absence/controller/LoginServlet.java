@@ -14,7 +14,7 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    /* エラーメッセージ */
-	    String errorStr = request.getParameter("error");
+	    String errorStr = request.getParameter("code");
 	    Integer error = null;
 	    String errorMsg = null;
 	    String[] errorMsgList = {
