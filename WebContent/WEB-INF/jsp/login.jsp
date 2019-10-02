@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ログイン</title>
+<title>ログイン | 公欠管理システム</title>
 </head>
 <body>
 	<%
