@@ -32,6 +32,7 @@ public class LoginCheckFilter implements Filter {
 
         /* throughPathのいずれかと一致するパスはフィルターを適用しない */
         if(Arrays.asList(throughPath).contains(accessPath)) {
+            /* ログアウト判定 (ログアウト後のsessionはnullにならない) */
             if(session != null) {
                 if(session.getAttribute("loginInfoBeans") != null) {
                     ((HttpServletResponse)response).sendRedirect("menu");
