@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import absence.beans.LoginInfoBeans;
 
 public class UserDao extends DaoBase {
-    private final String loginSQL = "SELECT student_id, student_name FROM students WHERE student_id = ? AND student_password = ?;";
+    private final String loginSQL = "SELECT `student_id`, `student_name` FROM `students` WHERE `student_id` = ? AND `student_password` = ?;";
 
     public LoginInfoBeans getBy(String userId, String password) {
         /* DB接続できていない場合はnullを返す */
