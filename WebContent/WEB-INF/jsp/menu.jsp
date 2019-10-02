@@ -13,7 +13,7 @@
 <body>
     <p>ようこそ、（学籍番号: <%= loginInfoBeans.getUserId() %>）<%= loginInfoBeans.getUserName() %>さん！</p>
     <a href="dispabsencelist">公欠一覧表示</a>
-    <a href="inputabsenceresist">公欠を登録する</a>
+    <a href="inputabsenceregist">公欠を登録する</a>
     <a href="logout">ログアウト</a>
 </body>
 </html>
