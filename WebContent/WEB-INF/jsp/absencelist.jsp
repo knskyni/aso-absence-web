@@ -3,9 +3,11 @@
 <%@ page import="absence.beans.LoginInfoBeans" %>
 <%@ page import="java.util.List" %>
 <%@ page import="absence.beans.AbsenceBeans" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 
 <%
     List<AbsenceBeans> absenceList = (List<AbsenceBeans>)request.getAttribute("absenceList");
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 %>
 <!DOCTYPE html>
 <html>
@@ -31,7 +33,7 @@
             <% for(AbsenceBeans absenceBeans : absenceList) { %>
             <tr>
                 <td><%= absenceBeans.getUserId() %></td>
-                <td><%= absenceBeans.getAbsenceDate() %></td>
+                <td><%= sdf.format(absenceBeans.getAbsenceDate()) %></td>
                 <td><%= absenceBeans.getCompanyName() %></td>
                 <td><%= absenceBeans.getReason() %></td>
             </tr>

@@ -46,7 +46,7 @@ public class ConfirmAbsenceRegistServlet extends HttpServlet {
         /* 値をBeansに格納 */
         AbsenceBeans registAbsenceBeans = new AbsenceBeans();
         registAbsenceBeans.setUserId(loginInfoBeans.getUserId());
-        registAbsenceBeans.setAbsenceDate(sdf.format(absenceDate));
+        registAbsenceBeans.setAbsenceDate(absenceDate);
         registAbsenceBeans.setCompanyName(companyName);
         registAbsenceBeans.setReason(reason);
 

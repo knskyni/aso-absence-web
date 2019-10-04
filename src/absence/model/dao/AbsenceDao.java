@@ -33,7 +33,7 @@ public class AbsenceDao extends DaoBase {
                 absenceBeans = new AbsenceBeans();
 
                 absenceBeans.setUserId(rs.getString("student_id"));
-                absenceBeans.setAbsenceDate(rs.getString("absence_date"));
+                absenceBeans.setAbsenceDate(rs.getDate("absence_date"));
                 absenceBeans.setCompanyName(rs.getString("company_name"));
                 absenceBeans.setReason(rs.getString("reason"));
 
@@ -62,7 +62,7 @@ public class AbsenceDao extends DaoBase {
 
             /* SQL文への値代入 */
             stmt.setString(1, absenceBeans.getUserId());
-            stmt.setString(2, absenceBeans.getAbsenceDate());
+            stmt.setDate(2, (java.sql.Date)absenceBeans.getAbsenceDate());
             stmt.setString(3, absenceBeans.getCompanyName());
             stmt.setString(4, absenceBeans.getReason());
 
