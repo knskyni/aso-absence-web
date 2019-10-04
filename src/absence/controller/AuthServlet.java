@@ -22,17 +22,17 @@ public class AuthServlet extends HttpServlet {
 
         /* ログイン実行 */
         LoginModel loginModel = new LoginModel();
-        LoginInfoBeans loinInfo = loginModel.login(userId, password);
+        LoginInfoBeans loginInfo = loginModel.login(userId, password);
 
         /* ログイン失敗 */
-        if(loinInfo == null) {
+        if(loginInfo == null) {
             response.sendRedirect("login?code=0");
             return;
         }
 
         /* ログイン成功、セッション開始 */
         HttpSession session = request.getSession(true);
-        session.setAttribute("loginInfoBeans", loinInfo);
+        session.setAttribute("loginInfoBeans", loginInfo);
 
         response.sendRedirect("menu");
     }
