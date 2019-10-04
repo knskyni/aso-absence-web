@@ -17,22 +17,22 @@ public class AuthServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         /* formからの値受け取り */
-        String user = request.getParameter("user");
+        String userId = request.getParameter("userId");
         String password = request.getParameter("password");
 
         /* ログイン実行 */
         LoginModel loginModel = new LoginModel();
-        LoginInfoBeans loginInfoBeans = loginModel.login(user, password);
+        LoginInfoBeans loinInfo = loginModel.login(userId, password);
 
         /* ログイン失敗 */
-        if(loginInfoBeans == null) {
+        if(loinInfo == null) {
             response.sendRedirect("login?code=0");
             return;
         }
 
         /* ログイン成功、セッション開始 */
         HttpSession session = request.getSession(true);
-        session.setAttribute("loginInfoBeans", loginInfoBeans);
+        session.setAttribute("loginInfoBeans", loinInfo);
 
         response.sendRedirect("menu");
     }

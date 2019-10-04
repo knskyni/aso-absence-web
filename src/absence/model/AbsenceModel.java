@@ -8,18 +8,18 @@ import absence.model.dao.AbsenceDao;
 public class AbsenceModel {
     public List<AbsenceBeans> getList(String userId) {
         AbsenceDao absenceDao = new AbsenceDao();
-        List<AbsenceBeans> absenceList = null;
+        List<AbsenceBeans> list = null;
 
         try {
             absenceDao.connect();
-            absenceList = absenceDao.getList(userId);
+            list = absenceDao.getList(userId);
         } catch(Exception e) {
             e.printStackTrace();
         } finally {
             absenceDao.close();
         }
 
-        return absenceList;
+        return list;
     }
 
     public void insert(AbsenceBeans absenceBeans) {

@@ -15,7 +15,7 @@
 			<tbody>
 				<tr>
 					<th>学籍番号</th>
-					<td><input type="text" name="user" required></td>
+					<td><input type="text" name="userId" required></td>
 				</tr>
 				<tr>
 					<th>パスワード</th>

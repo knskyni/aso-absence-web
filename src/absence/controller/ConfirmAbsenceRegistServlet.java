@@ -1,6 +1,9 @@
 package absence.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,13 +21,22 @@ public class ConfirmAbsenceRegistServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         /* formからの値取得 */
-        String absenceDate = request.getParameter("absence_date");
+        String absenceDateString = request.getParameter("absence_date");
         String companyName = request.getParameter("company_name");
         String reason = request.getParameter("reason");
 
-        if(absenceDate == null || companyName == null || reason == null) {
+        if(absenceDateString == null || companyName == null || reason == null) {
             response.sendRedirect("inputabsenceregist");
             return;
+        }
+
+        /* Date変換 */
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date absenceDate;
+        try {
+            absenceDate = sdf.parse(absenceDateString);
+        } catch(ParseException e) {
+            absenceDate = new Date();
         }
 
         /* セッション取得 */
@@ -34,7 +46,7 @@ public class ConfirmAbsenceRegistServlet extends HttpServlet {
         /* 値をBeansに格納 */
         AbsenceBeans registAbsenceBeans = new AbsenceBeans();
         registAbsenceBeans.setUserId(loginInfoBeans.getUserId());
-        registAbsenceBeans.setAbsenceDate(absenceDate);
+        registAbsenceBeans.setAbsenceDate(sdf.format(absenceDate));
         registAbsenceBeans.setCompanyName(companyName);
         registAbsenceBeans.setReason(reason);
 
