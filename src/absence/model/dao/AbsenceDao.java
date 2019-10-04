@@ -62,7 +62,7 @@ public class AbsenceDao extends DaoBase {
 
             /* SQL文への値代入 */
             stmt.setString(1, absenceBeans.getUserId());
-            stmt.setDate(2, (java.sql.Date)absenceBeans.getAbsenceDate());
+            stmt.setDate(2, new java.sql.Date(absenceBeans.getAbsenceDate().getTime()));
             stmt.setString(3, absenceBeans.getCompanyName());
             stmt.setString(4, absenceBeans.getReason());
 
