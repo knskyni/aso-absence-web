@@ -1,10 +1,11 @@
 package absence.beans;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class AbsenceBeans implements Serializable {
     private String userId;
-    private String absenceDate;
+    private Date absenceDate;
     private String companyName;
     private String reason;
 
@@ -16,11 +17,11 @@ public class AbsenceBeans implements Serializable {
         this.userId = userId;
     }
 
-    public String getAbsenceDate() {
+    public Date getAbsenceDate() {
         return absenceDate;
     }
 
-    public void setAbsenceDate(String absenceDate) {
+    public void setAbsenceDate(Date absenceDate) {
         this.absenceDate = absenceDate;
     }
 

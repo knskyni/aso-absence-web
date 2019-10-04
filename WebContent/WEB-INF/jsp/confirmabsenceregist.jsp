@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="absence.beans.AbsenceBeans" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%
     AbsenceBeans registAbsenceBeans = (AbsenceBeans)session.getAttribute("registAbsenceBeans");
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 %>
 <!DOCTYPE html>
 <html>
@@ -15,7 +17,7 @@
         <tbody>
             <tr>
                 <th>公欠日</th>
-                <td><%= registAbsenceBeans.getAbsenceDate().replace("-", "/") %></td>
+                <td><%= sdf.format(registAbsenceBeans.getAbsenceDate()) %></td>
             </tr>
             <tr>
                 <th>企業名</th>
