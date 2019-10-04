@@ -25,10 +25,10 @@ public class DispAbsenceListServlet extends HttpServlet {
 
         /* 公欠一覧の取得*/
         AbsenceModel absenceModel = new AbsenceModel();
-        List<AbsenceBeans> absenceList = absenceModel.getList(loginInfoBeans.getUserId());
+        List<AbsenceBeans> list = absenceModel.getList(loginInfoBeans.getUserId());
 
         /* JSPで表示する値の準備 */
-        request.setAttribute("absenceList", absenceList);
+        request.setAttribute("absenceList", list);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/absencelist.jsp");
         dispatcher.forward(request, response);
