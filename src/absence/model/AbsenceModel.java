@@ -50,4 +50,30 @@ public class AbsenceModel {
 
         return absenceBeans;
     }
+
+    public void update(AbsenceBeans absenceBeans) {
+        AbsenceDao absenceDao = new AbsenceDao();
+
+        try {
+            absenceDao.connect();
+            absenceDao.update(absenceBeans);
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            absenceDao.close();
+        }
+    }
+
+    public void delete(String absenceId) {
+        AbsenceDao absenceDao = new AbsenceDao();
+
+        try {
+            absenceDao.connect();
+            absenceDao.delete(absenceId);
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            absenceDao.close();
+        }
+    }
 }

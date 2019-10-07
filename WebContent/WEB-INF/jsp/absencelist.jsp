@@ -29,6 +29,7 @@
                 <th>日付</th>
                 <th>会社名</th>
                 <th>理由</th>
+                <th>操作</th>
             </tr>
             <% for(AbsenceBeans absenceBeans : absenceList) { %>
             <tr>
@@ -36,6 +37,7 @@
                 <td><%= sdf.format(absenceBeans.getAbsenceDate()) %></td>
                 <td><%= absenceBeans.getCompanyName() %></td>
                 <td><%= absenceBeans.getReason() %></td>
+                <td><a href="inputabsenceupdate?id=<%= absenceBeans.getAbsenceId() %>">編集</a> <a href="confirmabsencedelete?id=<%= absenceBeans.getAbsenceId() %>">削除</a></td>
             </tr>
             <% } %>
         </tbody>

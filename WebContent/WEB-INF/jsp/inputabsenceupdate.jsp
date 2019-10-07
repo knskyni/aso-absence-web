@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="absence.beans.AbsenceBeans" %>
 <%
-    AbsenceBeans absenceBeans = (AbsenceBeans)request.getAttribute("absenceBeans");
+    AbsenceBeans absenceBeans = (AbsenceBeans)session.getAttribute("updateAbsenceBeans");
 %>
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,7 @@
 <title>公欠更新 | 公欠管理システム</title>
 </head>
 <body>
-    <form action="confirmabsenceregist" method="POST">
+    <form action="confirmabsenceupdate" method="POST">
         <input type="date" name="absence_date" value="<%= absenceBeans.getAbsenceDate() %>">
         <input type="text" name="company_name" value="<%= absenceBeans.getCompanyName() %>">
         <textarea name="reason"><%= absenceBeans.getReason() %></textarea>
