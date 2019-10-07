@@ -25,7 +25,7 @@ public class ConfirmAbsenceRegistServlet extends HttpServlet {
         String companyName = request.getParameter("company_name");
         String reason = request.getParameter("reason");
 
-        if(absenceDateString == null || companyName == null || reason == null) {
+        if(absenceDateString.equals("") || companyName.equals("") || reason.equals("")) {
             response.sendRedirect("inputabsenceregist");
             return;
         }
