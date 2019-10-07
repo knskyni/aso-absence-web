@@ -19,6 +19,7 @@ import absence.beans.LoginInfoBeans;
 @WebFilter("/*")
 public class LoginCheckFilter implements Filter {
     private String[] throughPath = {"/login", "/auth"};
+    private String[] throughFile = {"css", "js", "png", "jpg", "jpeg", "gif"};
 
     @Override
     public void destroy() {
@@ -39,6 +40,13 @@ public class LoginCheckFilter implements Filter {
                     return;
                 }
             }
+            chain.doFilter(request, response);
+            return;
+        }
+
+        /* throughPathのいずれかと一致するパスはフィルターを適用しない */
+        String accessPathExtension = accessPath.substring(accessPath.lastIndexOf(".") + 1);
+        if(Arrays.asList(throughFile).contains(accessPathExtension)) {
             chain.doFilter(request, response);
             return;
         }
