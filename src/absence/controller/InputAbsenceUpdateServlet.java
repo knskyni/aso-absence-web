@@ -43,7 +43,7 @@ public class InputAbsenceUpdateServlet extends HttpServlet {
         }
 
         /* 値のセット */
-        request.setAttribute("absenceBeans", absenceBeans);
+        session.setAttribute("updateAbsenceBeans", absenceBeans);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/inputabsenceupdate.jsp");
         dispatcher.forward(request, response);

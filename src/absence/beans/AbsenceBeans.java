@@ -4,10 +4,19 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class AbsenceBeans implements Serializable {
+    private String absenceId;
     private String userId;
     private Date absenceDate;
     private String companyName;
     private String reason;
+
+    public String getAbsenceId() {
+        return absenceId;
+    }
+
+    public void setAbsenceId(String absenceId) {
+        this.absenceId = absenceId;
+    }
 
     public String getUserId() {
         return userId;

@@ -34,4 +34,20 @@ public class AbsenceModel {
             absenceDao.close();
         }
     }
+
+    public AbsenceBeans getAbsence(String userId, int absenceId) {
+        AbsenceDao absenceDao = new AbsenceDao();
+        AbsenceBeans absenceBeans = null;
+
+        try {
+            absenceDao.connect();
+            absenceBeans = absenceDao.getAbsence(userId, absenceId);
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            absenceDao.close();
+        }
+
+        return absenceBeans;
+    }
 }
