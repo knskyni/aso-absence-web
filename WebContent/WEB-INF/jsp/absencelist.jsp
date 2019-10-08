@@ -6,6 +6,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 
 <%
+    LoginInfoBeans loginInfo = (LoginInfoBeans)session.getAttribute("loginInfoBeans");
     List<AbsenceBeans> absenceList = (List<AbsenceBeans>)request.getAttribute("absenceList");
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 %>
@@ -46,7 +47,7 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0 text-white">
-                    ようこそ、◯◯◯さん
+                    ようこそ、<%= loginInfo.getClassName() %> <%= loginInfo.getUserName() %>さん
                 </form>
             </div>
         </nav>
